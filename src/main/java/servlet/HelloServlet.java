@@ -28,7 +28,7 @@ public class form extends HttpServlet {
             throws ServletException, IOException {
         String nm=request.getParameter("name");
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        PrintWriter out = response.getWriter();
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -40,7 +40,6 @@ public class form extends HttpServlet {
             out.println("<h1>Servlet form at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
