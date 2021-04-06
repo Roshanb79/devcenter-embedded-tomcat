@@ -1,61 +1,85 @@
 package servlet;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(
-        name = "MyServlet", 
-        urlPatterns = {"/sv1"}
-    )
-public class HelloServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+/**
+ *
+ * @author roshan
+ */
+@WebServlet(urlPatterns = {"/form"})
+public class form extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ServletOutputStream out = resp.getOutputStream();
-        String name=request.getParameter("name");
-       String services[]=request.getParameter("name");
-       StringBuffer serv=new StringBuffer();
-        HttpsSession ses=request.getSession(true);
-       int amount=0;
-      for(int i=0;i<services.length;i++){
-        serv.append(services[i]);
-       switch(services[i].toString()){
-        case "Color":
-        amount+=250;
-        break;
-        case "Hair-Cut":
-        amount+=300;
-        break;
-        case "Head Massage":
-        amount+=450;
-        break;
-        case "Hair-Painting":
-        amount+=550;
-        break;
+        String nm=request.getParameter("name");
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet form </title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("welcome "+ nm);
+            out.println("<h1>Servlet form at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
-}
-ses.putValue("name",name);
-ses.putValue("amount",name);
-ses.putValue("services",serv.toString());
-out.println("<html>");
-out.println("<body>");
-out.println("<form action='sv2.java' method='GET'>");
-out.println("Select Your Discount Coupon");
-out.println("<select name='disc'>");
-out.println("<option value='10'>10%</option>");
-out.println("<option value='20'>20%</option>");
-out.println("<option value='30'>30%</option>");
-out.println("</select>");
-out.println("<input type='submit' value='proceed'>");
-out.println("<form>");
-out.println("</body>");
-out.println("</html>");
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
-    
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }
