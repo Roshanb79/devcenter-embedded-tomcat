@@ -47,7 +47,7 @@ out.println("<html>");
 out.println("<body>");
 out.println("<form action='sv2.java' method='GET'>");
 out.println("Select Your Discount Coupon");
-out.println("<select name='disc' >
+out.println("<select name='disc'>");
 out.println("<option value='10'>10%</option>");
 out.println("<option value='20'>20%</option>");
 out.println("<option value='30'>30%</option>");
