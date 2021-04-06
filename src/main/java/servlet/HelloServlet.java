@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author roshan
  */
 @WebServlet(urlPatterns = {"/form"})
-public class form extends HttpServlet {
+public class HelloServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
