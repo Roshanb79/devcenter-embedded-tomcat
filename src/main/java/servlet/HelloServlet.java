@@ -25,7 +25,7 @@ public class HelloServlet extends HttpServlet {
        int amount=0;
       for(int i=0;i<services.length;i++){
         serv.append(services[i]);
-       switch(services[i]){
+       switch(services[i].toString()){
         case "Color":
         amount+=250;
         break;
