@@ -1,21 +1,14 @@
 <html>
-	<head>
-		<title>Square</title>
-	</head>
-	<body>
-		<h3>Enter Your Name and select your services</h3>
-		<form action="sv1.java" method="get">
-			<label for="aop">Name</label>
-			<input type="number" name="num" placeholder="Enter Your Name"><br>
-			    Select Services<br>
-			  <select name="services" multiple>  
-   <option value="c" selected>Color</option>
-  <option value="hc">Hair-Cut</option>
-  <option value="hm">Head Massage</option>
-  <option value="hp">Hair-Painting</option>
-  </select>
-  <br>
-				<input type="submit" value="Book"></button>
-		</form>
-	</body>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form name="ff" method="get" action="form">
+            Enter name:<input type="text" name="name">
+            <input type="submit" value="submit">
+            
+        </form>
+    </body>
 </html>
